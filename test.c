@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+
 /**
  * main - prints hello world
  * @argc: number of arguments passed
@@ -12,7 +13,7 @@ int main(int argc, char **argv)
 	char str[1000];
 	pid_t pid;
 
-	while (1)
+	while (argc)
 	{
 		printf("$ ");
 		if (input_string(str) == 0)
