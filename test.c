@@ -10,22 +10,20 @@
 
 int main(int argc, char **argv)
 {
-	char str[1000];
-	pid_t pid;
+	char str[1000],*cmd[1000];
 
 	while (argc)
 	{
 		printf("$ ");
 		if (input_string(str) == 0)
 		{
-			pid = fork();
-			if (pid == 0)
+			split_space(str,cmd);
+			if (str[0] != '\0')
 			{
-				if (execve(str, argv, NULL) == -1)
-					perror(argv[0]);
+				execArg(cmd,argv[0]);	
 			}
 			else
-				wait(NULL);
+				continue;
 		}
 		else
 		{
